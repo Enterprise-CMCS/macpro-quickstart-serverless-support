@@ -1,9 +1,9 @@
 # macpro-quickstart-serverless-support
 
 <!-- Add badges later -->
-<!-- ![Build](https://github.com/CMSgov/macpro-quickstart-serverless-support/workflows/Deploy/badge.svg?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/1449ad929006f559756b/maintainability)](https://codeclimate.com/github/CMSgov/macpro-quickstart-serverless-support/maintainability) [![CodeQL](https://github.com/CMSgov/macpro-quickstart-serverless/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/CMSgov/macpro-quickstart-serverless/actions/workflows/codeql-analysis.yml) [![Dependabot](https://badgen.net/badge/Dependabot/enabled/green?icon=dependabot)](https://dependabot.com/) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Test Coverage](https://api.codeclimate.com/v1/badges/1449ad929006f559756b/test_coverage)](https://codeclimate.com/github/CMSgov/macpro-quickstart-serverless/test_coverage) -->
+<!-- ![Build](https://github.com/CMSgov/macpro-quickstart-serverless-support/workflows/Deploy/badge.svg?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/1449ad929006f559756b/maintainability)](https://codeclimate.com/github/CMSgov/macpro-quickstart-serverless-support/maintainability) [![CodeQL](https://github.com/CMSgov/macpro-quickstart-serverless-support/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/CMSgov/macpro-quickstart-serverless-support/actions/workflows/codeql-analysis.yml) [![Dependabot](https://badgen.net/badge/Dependabot/enabled/green?icon=dependabot)](https://dependabot.com/) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Test Coverage](https://api.codeclimate.com/v1/badges/1449ad929006f559756b/test_coverage)](https://codeclimate.com/github/CMSgov/macpro-quickstart-serverless-support/test_coverage) -->
 
-A support/infra repository for macpro-quickstart-serverless.
+A support repository for [macpro-quickstart-serverless](https://github.com/cmsgov/macpro-quickstart-serverless). This repository builds appliances and systems that support the [macpro-quickstart-serverless](https://github.com/cmsgov/macpro-quickstart-serverless) product, but are not directly related to the application and/or are not bound to the application code's lifecycle. Things of this nature are frequently centered on AWS account level maintenance and configuration.
 
 ## Release
 
@@ -11,11 +11,11 @@ Our product is promoted through branches. Master is merged to val to affect a ma
 
 \*\* The quickstart only has one backing AWS account, so master/val/production all deploy to the same account. As such, there is no need for promotion in the support repository. The master branch will control the one and only AWS account. However, since forks of this project will likely support 3 AWS accounts - one for master/dev, one for val, and one for production - this blurb about release, the table below, and the pull request templates for val/production will all remain. We simply won't use val/production branches or tooling for this support repository, because we only have the one account.
 
-| branch     | status                                                                                                             | release                                                                                                                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| master     | ![master](https://github.com/CMSgov/macpro-quickstart-serverless/workflows/Deploy/badge.svg?branch=master)         | [![release to master](https://img.shields.io/badge/-Create%20PR-blue.svg)](https://github.com/CMSgov/macpro-quickstart-serverless/compare?quick_pull=1)                                                                                                   |
-| val        | ![val](https://github.com/CMSgov/macpro-quickstart-serverless/workflows/Deploy/badge.svg?branch=val)               | [![release to val](https://img.shields.io/badge/-Create%20PR-blue.svg)](https://github.com/CMSgov/macpro-quickstart-serverless/compare/val...master?quick_pull=1&template=PULL_REQUEST_TEMPLATE.val.md&title=Release%20to%20Val)                          |
-| production | ![production](https://github.com/CMSgov/macpro-quickstart-serverless/workflows/Deploy/badge.svg?branch=production) | [![release to production](https://img.shields.io/badge/-Create%20PR-blue.svg)](https://github.com/CMSgov/macpro-quickstart-serverless/compare/production...val?quick_pull=1&template=PULL_REQUEST_TEMPLATE.production.md&title=Release%20to%20Production) |
+| branch     | status                                                                                                                     | release                                                                                                                                                                                                                                                           |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| master     | ![master](https://github.com/CMSgov/macpro-quickstart-serverless/workflows/Deploy/badge.svg?branch=master)                 | [![release to master](https://img.shields.io/badge/-Create%20PR-blue.svg)](https://github.com/CMSgov/macpro-quickstart-serverless-support/compare?quick_pull=1)                                                                                                   |
+| val        | ![val](https://github.com/CMSgov/macpro-quickstart-serverless-support/workflows/Deploy/badge.svg?branch=val)               | [![release to val](https://img.shields.io/badge/-Create%20PR-blue.svg)](https://github.com/CMSgov/macpro-quickstart-serverless-support/compare/val...master?quick_pull=1&template=PULL_REQUEST_TEMPLATE.val.md&title=Release%20to%20Val)                          |
+| production | ![production](https://github.com/CMSgov/macpro-quickstart-serverless-support/workflows/Deploy/badge.svg?branch=production) | [![release to production](https://img.shields.io/badge/-Create%20PR-blue.svg)](https://github.com/CMSgov/macpro-quickstart-serverless-support/compare/production...val?quick_pull=1&template=PULL_REQUEST_TEMPLATE.production.md&title=Release%20to%20Production) |
 
 ## Usage
 
@@ -23,13 +23,13 @@ See master build [here](https://github.com/CMSgov/macpro-quickstart-serverless-s
 
 This application is built and deployed via GitHub Actions.
 
-Want to deploy from your Mac?
+Want to deploy from your Mac? Well, word of warning... this repository contains things and ideas that are typically bound to an account, not a stage. So if deploying a stage (mystagename for example), you may well step on another stage if you're both deploying to the same AWS account. If that's confusing, don't deploy from your mac.
 
 - Create an AWS account
 - Install/configure the AWS CLI
-- npm install -g severless
 - brew install yarn
-- sh deploy.sh
+- source set.env.sh
+- sh deploy.sh mystagename
 
 ## Requirements
 
@@ -51,7 +51,7 @@ None.
 
 ## Contributing / To-Do
 
-See current open [issues](https://github.com/CMSgov/macpro-quickstart-serverless/issues) or check out the [project board](https://github.com/CMSgov/macpro-quickstart-serverless/projects/1).
+See current open [issues](https://github.com/CMSgov/macpro-quickstart-serverless-support/issues) or check out the [project board](https://github.com/CMSgov/macpro-quickstart-serverless-support/projects/1).
 
 Please feel free to open new issues for defects or enhancements.
 
@@ -59,7 +59,7 @@ To contribute:
 
 - Fork this repository
 - Make changes in your fork
-- Open a pull request targetting this repository
+- Open a pull request targeting this repository
 
 Pull requests are being accepted.
 
@@ -76,20 +76,6 @@ in the public domain within the United States.
 Additionally, we waive copyright and related rights in the
 work worldwide through the CC0 1.0 Universal public domain dedication.
 ```
-
-## Slack channel
-
-To enable slack integration, set a value for SLACK_WEBHOOK_URL in github actions secret.
-
-To set the SLACK_WEBHOOK_URL:
-
-- Go to https://api.slack.com/apps
-- Create new app : fill in the information
-- Add features and funtionality----Incoming webhooks--- activative incoming webooks--- Add new webhook to workspace.
-- copy new webhook url and set it as SLACK_WEBHOOK_URL in github actions secret.
-
-Please join the macpro-quickstart-serverless slack channel to get all build status and also contribute to any ongoing discussions.
-Join here: https://join.slack.com/t/macproquickst-ugp3045/shared_invite/zt-mdxpbtkk-SrLRi_yzJrXX3uYgvrbjlg
 
 ### Contributors
 
