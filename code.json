@@ -1,0 +1,62 @@
+{
+  "name": "macpro-quickstart-serverless-support",
+  "description": "Support repository providing AWS account-level maintenance and configuration services for the MACPRO Quickstart Serverless application, including Security Hub integration for automated security finding management.",
+  "longDescription": "The MACPRO Quickstart Serverless Support repository is a critical infrastructure component that provides AWS account-level maintenance and configuration services for the MACPRO Quickstart Serverless application ecosystem. This repository contains serverless functions and deployment scripts that handle operational tasks not directly tied to the main application's lifecycle. The primary service currently implemented is 'sechub', which automates the synchronization of AWS Security Hub findings to GitHub Issues, enabling development teams to track and remediate security vulnerabilities through their standard GitHub workflow. The system leverages AWS Lambda functions triggered on a scheduled basis to continuously monitor Security Hub findings, automatically creating and managing GitHub Issues for critical and high-severity security findings. Built using the Serverless Framework with Node.js runtime, the repository supports multi-environment deployments (master, val, production) and utilizes AWS Systems Manager Parameter Store for secure configuration management. The architecture supports configurable severity levels, multiple GitHub project board integrations (both repository and organization level), and provides a scalable foundation for additional AWS account maintenance services. This support infrastructure is essential for maintaining security compliance and operational excellence across CMS Medicare and Medicaid modernization initiatives.",
+  "status": "Production",
+  "permissions": {
+    "licenses": [
+      {
+        "name": "CC0-1.0",
+        "URL": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
+      }
+    ],
+    "usageType": "openSource",
+    "exemptionText": ""
+  },
+  "organization": "Centers for Medicare & Medicaid Services",
+  "repositoryURL": "https://github.com/Enterprise-CMCS/macpro-quickstart-serverless-support",
+  "projectURL": "",
+  "repositoryHost": "github.com/Enterprise-CMCS",
+  "repositoryVisibility": "public",
+  "vcs": "git",
+  "laborHours": 2510,
+  "reuseFrequency": {
+    "forks": 0,
+    "clones": 0
+  },
+  "platforms": ["web", "linux", "other"],
+  "categories": ["it-security", "it-development", "devops"],
+  "softwareType": "standalone/backend",
+  "languages": [
+    "JavaScript",
+    "Shell"
+  ],
+  "maintenance": "contract",
+  "contractNumber": "GS-35F-115GA:75FCMC22F0093",
+  "date": {
+    "created": "2021-09-21T15:18:06Z",
+    "lastModified": "2025-07-22T15:57:50Z",
+    "metaDataLastUpdated": "2025-07-22T15:59:25.389Z"
+  },
+  "tags": ["security-hub", "github-integration", "serverless", "aws-lambda", "macpro", "infrastructure", "devops", "security-automation"],
+  "contact": {
+    "email": "bpaige@gswell.com",
+    "name": "Benjamin Paige"
+  },
+  "feedbackMechanisms": [
+    "https://github.com/Enterprise-CMCS/macpro-quickstart-serverless-support/issues"
+  ],
+  "localisation": false,
+  "repositoryType": "tools",
+  "userInput": false,
+  "fismaLevel": "Moderate",
+  "group": "CMS/CMCS/DSG/DIS",
+  "projects": [
+    "MACPRO"
+  ],
+  "systems": ["AWS Lambda", "AWS Security Hub", "GitHub API", "AWS Systems Manager"],
+  "upstream": "",
+  "subsetInHealthcare": ["Policy", "Operational", "Medicare", "Medicaid"],
+  "userType": ["Government"],
+  "maturityModelTier": 2
+}
